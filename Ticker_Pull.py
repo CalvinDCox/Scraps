@@ -3,9 +3,10 @@
 import pandas as pd
 import pandas_datareader as web  #Module imports data from web (author says may change based on version)
 import datetime
+import matplotlib.pyplot as plt
 
 #Prices over the past Month, starting in september
-start = datetime.datetime(2016,9,1) #Pretty sure it goes year month day
+start = datetime.datetime(2016,9,1) #Pretty sure it goes year day month
 end = datetime.datetime.today()
 
 # Get Coca-Cola stock data 'KO'
@@ -13,3 +14,5 @@ end = datetime.datetime.today()
 cola = web.DataReader("KO", "yahoo", start, end)
 
 cola.head()
+
+cola["Adj Close"].plot(grid=False) #Plot the adjusted closing price
